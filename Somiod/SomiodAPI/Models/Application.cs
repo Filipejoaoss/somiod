@@ -9,7 +9,7 @@ namespace SomiodAPI.Models
     {
         public int Id { get; set; }
         public string NameApp { get; set; }
-        public DateTime Creation_dt { get; set; }
+        public string Creation_dt { get; set; }
         public string Res_type { get; set; }
     }
 }

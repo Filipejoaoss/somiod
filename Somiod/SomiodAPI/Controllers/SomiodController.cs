@@ -37,7 +37,7 @@ namespace SomiodAPI.Controllers
                     {
                         Id = (int)reader["ID"],
                         NameApp = (string)reader["NameApp"],
-                        Creation_dt = (DateTime)reader["Creation_dt"],
+                        Creation_dt = (string)reader["Creation_dt"],
                         Res_type = (string)reader["Res_type"]
                     };
 
@@ -81,7 +81,7 @@ namespace SomiodAPI.Controllers
                     {
                         Id = (int)reader["Id"],
                         NameApp = (string)reader["NameApp"],
-                        Creation_dt = (DateTime)reader["Creation_dt"],
+                        Creation_dt = (string)reader["Creation_dt"],
                         Res_type = (string)reader["Res_type"]
                     };
                 }
@@ -122,7 +122,7 @@ namespace SomiodAPI.Controllers
 
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@nameApp", application.NameApp);
-                command.Parameters.AddWithValue("@creation_dt", DateTime.UtcNow);
+                command.Parameters.AddWithValue("@creation_dt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 command.Parameters.AddWithValue("@res_type", application.Res_type);
 
                 int numRegistos = command.ExecuteNonQuery();
@@ -257,7 +257,7 @@ namespace SomiodAPI.Controllers
                     {
                         Id = (int)reader["ID"],
                         NameMod = (string)reader["NameMod"],
-                        Creation_dt = (DateTime)reader["Creation_dt"],
+                        Creation_dt = (string)reader["Creation_dt"],
                         Parent = (int)reader["Parent"],
                         Res_type = (string)reader["Res_type"]
                     };
@@ -306,7 +306,7 @@ namespace SomiodAPI.Controllers
                     {
                         Id = (int)readerData["Id"],
                         Content = (string)readerData["Content"],
-                        Creation_dt = (DateTime)readerData["Creation_dt"],
+                        Creation_dt = (string)readerData["Creation_dt"],
                         Parent = (int)readerData["Parent"],
                         Res_type = (string)readerData["Res_type"]
                     }
@@ -327,7 +327,7 @@ namespace SomiodAPI.Controllers
                     {
                         Id = (int)reader["Id"],
                         NameMod = (string)reader["NameMod"],
-                        Creation_dt = (DateTime)reader["Creation_dt"],
+                        Creation_dt = (string)reader["Creation_dt"],
                         Parent = (int)reader["Parent"],
                         Res_type = (string)reader["Res_type"],
                         Data = listData
@@ -377,7 +377,7 @@ namespace SomiodAPI.Controllers
 
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("nameMod", module.NameMod);
-                command.Parameters.AddWithValue("creation_dt", DateTime.UtcNow);
+                command.Parameters.AddWithValue("creation_dt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                 command.Parameters.AddWithValue("parent", parent);
                 command.Parameters.AddWithValue("res_type", module.Res_type);
 
@@ -517,7 +517,7 @@ namespace SomiodAPI.Controllers
 
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.Parameters.AddWithValue("content", dataSub.Content);
-                    command.Parameters.AddWithValue("creation_dt", DateTime.UtcNow);
+                    command.Parameters.AddWithValue("creation_dt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                     command.Parameters.AddWithValue("parent", parent);
                     command.Parameters.AddWithValue("res_type", dataSub.Res_type);
 
@@ -552,7 +552,7 @@ namespace SomiodAPI.Controllers
 
                     SqlCommand command = new SqlCommand(sql, connection);
                     command.Parameters.AddWithValue("nameSub", dataSub.NameSub);
-                    command.Parameters.AddWithValue("creation_dt", DateTime.UtcNow);
+                    command.Parameters.AddWithValue("creation_dt", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
                     command.Parameters.AddWithValue("parent", parent);
                     command.Parameters.AddWithValue("event", dataSub.Event);
                     command.Parameters.AddWithValue("endpoint", dataSub.EndPoint);

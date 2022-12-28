@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Applications] (
     [Id]          INT           IDENTITY (1, 1) NOT NULL,
     [NameApp]     NVARCHAR (50) NOT NULL,
-    [Creation_dt] DATETIME      NOT NULL,
+    [Creation_dt] NVARCHAR (50) NOT NULL,
     [Res_type]    NVARCHAR (50) NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     UNIQUE NONCLUSTERED ([NameApp] ASC)
@@ -10,7 +10,7 @@
 CREATE TABLE [dbo].[Modules] (
     [Id]          INT           IDENTITY (1, 1) NOT NULL,
     [NameMod]     NVARCHAR (50) NOT NULL,
-    [Creation_dt] DATETIME      NOT NULL,
+    [Creation_dt] NVARCHAR (50) NOT NULL,
     [Parent]      INT           NOT NULL,
     [Res_type]    NVARCHAR (50) NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
@@ -21,7 +21,7 @@ CREATE TABLE [dbo].[Modules] (
 CREATE TABLE [dbo].[Datas] (
     [Id]          INT           IDENTITY (1, 1) NOT NULL,
     [Content]     NVARCHAR (50) NOT NULL,
-    [Creation_dt] DATETIME      NOT NULL,
+    [Creation_dt] NVARCHAR (50) NOT NULL,
     [Parent]      INT           NOT NULL,
     [Res_type]    NVARCHAR (50) NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
