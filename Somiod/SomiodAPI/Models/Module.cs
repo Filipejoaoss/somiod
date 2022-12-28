@@ -12,5 +12,6 @@ namespace SomiodAPI.Models
         public DateTime Creation_dt { get; set; }
         public int Parent { get; set; }
         public string Res_type { get; set; }
+        public virtual List<DataSub> Data { get; set; }
     }
 }

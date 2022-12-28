@@ -1,0 +1,11 @@
+C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application B\bin\Debug\Application B.exe.config
+C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application B\bin\Debug\Application B.exe
+C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application B\bin\Debug\Application B.pdb
+C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application B\obj\Debug\Application B.csproj.AssemblyReference.cache
+C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application B\obj\Debug\Application B.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application B\obj\Debug\Application_B.Form1.resources
+C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application B\obj\Debug\Application_B.Properties.Resources.resources
+C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application B\obj\Debug\Application B.csproj.GenerateResource.cache
+C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application B\obj\Debug\Application B.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application B\obj\Debug\Application B.exe
+C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application B\obj\Debug\Application B.pdb

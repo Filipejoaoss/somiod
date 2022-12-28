@@ -191,6 +191,16 @@ namespace SomiodAPI.Controllers
         [Route("api/somiod/{id:int}")]
         public IHttpActionResult DeleteApplication(int id)
         {
+            List<Module> listModules = new List<Module>();
+
+            listModules = GetModuleByApplication(id);
+
+            for (int i = 0; i < listModules.Count(); i++)
+            {
+                int idMod = listModules[i].Id;
+                DeleteModule(idMod);
+            }
+
             SqlConnection connection = null;
 
             try
@@ -230,7 +240,7 @@ namespace SomiodAPI.Controllers
         public IEnumerable<Module> GetAllModules()
         {
             List<Module> listModules = new List<Module>();
-            string sql = "SELECT * FROM Modules";
+            string sql = "SELECT Id, NameMod, Creation_dt, Parent, Res_type FROM Modules";
             SqlConnection connection = null;
 
             try
@@ -273,7 +283,9 @@ namespace SomiodAPI.Controllers
         [Route("api/somiod/{nameApp}/{id}")]
         public IHttpActionResult GetModuleById(int id)
         {
+
             string sql = "SELECT * FROM Modules WHERE Id=@id";
+            string sqlData = "SELECT id, content, creation_dt, parent, res_type FROM Datas WHERE Parent=@id";
             SqlConnection connection = null;
             Module module = null;
 
@@ -282,10 +294,33 @@ namespace SomiodAPI.Controllers
                 connection = new SqlConnection(connectionString);
                 connection.Open();
 
+                SqlCommand commandData = new SqlCommand(sqlData, connection);
+                commandData.Parameters.AddWithValue("@id", id);
+                SqlDataReader readerData = commandData.ExecuteReader();
+
+                List<DataSub> listData = new List<DataSub>();
+
+                while (readerData.Read())
+                {
+                    listData.Add(new DataSub
+                    {
+                        Id = (int)readerData["Id"],
+                        Content = (string)readerData["Content"],
+                        Creation_dt = (DateTime)readerData["Creation_dt"],
+                        Parent = (int)readerData["Parent"],
+                        Res_type = (string)readerData["Res_type"]
+                    }
+                    );
+                }
+
+                readerData.Close();
+                connection.Close();
+
+                connection.Open();
+
                 SqlCommand command = new SqlCommand(sql, connection);
                 command.Parameters.AddWithValue("@id", id);
                 SqlDataReader reader = command.ExecuteReader();
-
                 if (reader.Read())
                 {
                     module = new Module
@@ -294,7 +329,8 @@ namespace SomiodAPI.Controllers
                         NameMod = (string)reader["NameMod"],
                         Creation_dt = (DateTime)reader["Creation_dt"],
                         Parent = (int)reader["Parent"],
-                        Res_type = (string)reader["Res_type"]
+                        Res_type = (string)reader["Res_type"],
+                        Data = listData
                     };
                 }
 
@@ -412,6 +448,18 @@ namespace SomiodAPI.Controllers
         [Route("api/somiod/{nameApp}/{id}")]
         public IHttpActionResult DeleteModule(int id)
         {
+            List<DataSub> listDataSubs = new List<DataSub>();
+
+            listDataSubs = GetDataSubs(id);
+
+            for (int i = 0; i < listDataSubs.Count(); i++)
+            {
+                int idDataSub = listDataSubs[i].Id;
+                string resTypeDataSub = listDataSubs[i].Res_type;
+
+                DeleteDataSub(idDataSub, resTypeDataSub);
+            }
+
             SqlConnection connection = null;
 
             try
@@ -539,7 +587,7 @@ namespace SomiodAPI.Controllers
         {
             SqlConnection connection = null;
 
-            if(res_type == "data")
+            if (res_type == "data")
             {
                 try
                 {
@@ -655,108 +703,85 @@ namespace SomiodAPI.Controllers
             }
             return id;
         }
-
-        private int GetDataId(int parent)
+        private List<Module> GetModuleByApplication(int id)
         {
-            int id = -1;
+            List<Module> listModules = new List<Module>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT id FROM Datas WHERE parent = @parent", connection))
+                using (SqlCommand command = new SqlCommand("SELECT id FROM Modules WHERE Parent = @id", connection))
                 {
-                    command.Parameters.AddWithValue("@parent", parent);
+                    command.Parameters.AddWithValue("@id", id);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        while (reader.Read())
                         {
-                            id = (int)reader["Id"];
+                            listModules.Add(new Module
+                            {
+                                Id = (int)reader["Id"]
+                            }
+                            );
                         }
                     }
 
                     connection.Close();
                 }
-
-                return id;
             }
+            return listModules;
+
         }
 
-        private int GetSubId(int parent)
+        private List<DataSub> GetDataSubs(int id)
         {
-            int id = -1;
+            List<DataSub> listDataSubs = new List<DataSub>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT id FROM Datas WHERE parent = @parent", connection))
+                using (SqlCommand command = new SqlCommand("SELECT id, res_type FROM Datas WHERE parent = @id", connection))
                 {
-                    command.Parameters.AddWithValue("@parent", parent);
+                    command.Parameters.AddWithValue("@id", id);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        while (reader.Read())
                         {
-                            id = (int)reader["Id"];
+                            listDataSubs.Add(new DataSub
+                            {
+                                Id = (int)reader["Id"],
+                                Res_type = (string)reader["Res_type"]
+                            }
+                            );
                         }
                     }
 
                     connection.Close();
                 }
 
-                return id;
-            }
-        }
-
-        private string GetDataResType(int parent)
-        {
-            string res_type = null;
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
                 connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT res_type FROM Datas WHERE parent = @parent", connection))
+                using (SqlCommand command = new SqlCommand("SELECT id, res_type FROM Subscriptions WHERE parent = @id", connection))
                 {
-                    command.Parameters.AddWithValue("@parent", parent);
+                    command.Parameters.AddWithValue("@id", id);
 
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        while (reader.Read())
                         {
-                            res_type = (string)reader["Res_type"];
+                            listDataSubs.Add(new DataSub
+                            {
+                                Id = (int)reader["Id"],
+                                Res_type = (string)reader["Res_type"]
+                            }
+                            );
                         }
                     }
 
                     connection.Close();
                 }
 
-                return res_type;
-            }
-        }
-
-        private string GetSubResType(int parent)
-        {
-            string res_type = null;
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT res_type FROM Datas WHERE parent = @parent", connection))
-                {
-                    command.Parameters.AddWithValue("@parent", parent);
-
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            res_type = (string)reader["Res_type"];
-                        }
-                    }
-
-                    connection.Close();
-                }
-
-                return res_type;
+                return listDataSubs;
             }
         }
     }
