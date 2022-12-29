@@ -283,10 +283,11 @@ namespace SomiodAPI.Controllers
         [Route("api/somiod/{nameApp}/{id}")]
         public IHttpActionResult GetModuleById(int id)
         {
-
             string sql = "SELECT * FROM Modules WHERE Id=@id";
             string sqlData = "SELECT id, content, creation_dt, parent, res_type FROM Datas WHERE Parent=@id";
+            
             SqlConnection connection = null;
+            
             Module module = null;
 
             try
@@ -302,15 +303,16 @@ namespace SomiodAPI.Controllers
 
                 while (readerData.Read())
                 {
-                    listData.Add(new DataSub
+                    DataSub dataSub = new DataSub
                     {
                         Id = (int)readerData["Id"],
                         Content = (string)readerData["Content"],
                         Creation_dt = (string)readerData["Creation_dt"],
                         Parent = (int)readerData["Parent"],
                         Res_type = (string)readerData["Res_type"]
-                    }
-                    );
+                    };
+
+                    listData.Add(dataSub); 
                 }
 
                 readerData.Close();
