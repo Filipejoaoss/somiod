@@ -540,7 +540,7 @@ namespace SomiodAPI.Controllers
                     {
                         string content = dataSub.Content;
                         string eventData = "creation";
-                        string endPoint = "127.0.0.1";
+                        string endPoint = GetEndPoint(parent);
 
                         sendNotification(nameMod, eventData, endPoint, content);
                         return Ok();
@@ -605,6 +605,9 @@ namespace SomiodAPI.Controllers
         [Route("api/somiod/{nameApp}/{nameMod}/{id}/{res_type}")]
         public IHttpActionResult DeleteDataSub(int id, string res_type)
         {
+            string eventData = "deletion";
+            int parent = GetParent(id);
+
             SqlConnection connection = null;
 
             if (res_type == "data")
@@ -624,6 +627,12 @@ namespace SomiodAPI.Controllers
 
                     if (numRegistos > 0)
                     {
+                        string endPoint = GetEndPoint(parent);
+                        string content = null;
+                        string nameMod = GetModuleName(parent);
+
+                        //sendNotification(nameMod, eventData, endPoint, content);
+
                         return Ok();
                     }
                     return NotFound();
@@ -806,6 +815,84 @@ namespace SomiodAPI.Controllers
             }
         }
 
+        private string GetEndPoint(int parent)
+        {
+            string endPoint = null;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT EndPoint FROM Subscriptions WHERE parent = @parent", connection))
+                {
+                    command.Parameters.AddWithValue("@parent", parent);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            endPoint = (string)reader["EndPoint"];
+                        }
+                    }
+
+                    connection.Close();
+                }
+            }
+
+            return endPoint;
+        }
+
+        private string GetModuleName(int parent)
+        {
+            string name = null;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT nameMod FROM Modules WHERE id = @id", connection))
+                {
+                    command.Parameters.AddWithValue("@id", parent);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            name = (string)reader["NameMod"];
+                        }
+                    }
+
+                    connection.Close();
+                }
+            }
+
+            return name;
+        }
+
+        private int GetParent(int id)
+        {
+            int parent = -1;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT parent FROM Datas WHERE id = @id", connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            parent = (int)reader["Parent"];
+                        }
+                    }
+
+                    connection.Close();
+                }
+            }
+
+            return parent;
+        }
+
         private void subChannel(string nameMod, string eventData, string endPoint)
         {
             string[] topics = { nameMod };
@@ -844,7 +931,7 @@ namespace SomiodAPI.Controllers
         private void sendNotification(string nameMod, string eventData, string endPoint, string content)
         {
             mqttClient  = new MqttClient(IPAddress.Parse(endPoint));
-            mqttClient.Connect(Guid.NewGuid().ToString());
+            mqttClient.Connect(Guid.NewGuid().ToString());            
 
             if (!mqttClient.IsConnected)
             {
