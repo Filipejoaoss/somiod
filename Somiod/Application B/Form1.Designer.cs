@@ -56,6 +56,7 @@
             this.buttonOn.TabIndex = 1;
             this.buttonOn.Text = "Light On";
             this.buttonOn.UseVisualStyleBackColor = false;
+            this.buttonOn.Click += new System.EventHandler(this.buttonOn_Click);
             // 
             // buttonOff
             // 
@@ -68,6 +69,7 @@
             this.buttonOff.TabIndex = 2;
             this.buttonOff.Text = "Light Off";
             this.buttonOff.UseVisualStyleBackColor = false;
+            this.buttonOff.Click += new System.EventHandler(this.buttonOff_Click);
             // 
             // Form1
             // 

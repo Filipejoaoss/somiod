@@ -5,9 +5,9 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SomiodAPI", "SomiodAPI\SomiodAPI.csproj", "{067FB4F2-9C0D-4B53-9E92-6149E446DA6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application A", "Application A\Application A.csproj", "{D8753896-C0E6-4208-A093-8DEA3870CAF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App A", "Application A\App A.csproj", "{D8753896-C0E6-4208-A093-8DEA3870CAF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application B", "Application B\Application B.csproj", "{454FB46A-FAE3-49C8-89E1-EE8D2B6A5B7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App B", "Application B\App B.csproj", "{454FB46A-FAE3-49C8-89E1-EE8D2B6A5B7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

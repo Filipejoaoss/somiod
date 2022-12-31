@@ -1,25 +1,34 @@
 ﻿using SomiodAPI.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.EnterpriseServices.Internal;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.Remoting.Channels;
+using System.Text;
 using System.Web.Http;
+using System.Windows.Forms;
+using System.Xml.Linq;
+using uPLibrary.Networking.M2Mqtt;
+using uPLibrary.Networking.M2Mqtt.Messages;
 
 namespace SomiodAPI.Controllers
 {
     public class SomiodController : ApiController
     {
         string connectionString = Properties.Settings.Default.connStr;
+        MqttClient mqttClient = null;
 
         /*------------------------------------------------ APPLICATIONS ------------------------------------------------*/
 
         //Get All Applications
         [Route("api/somiod")]
-        public IEnumerable<Application> GetAllApplications()
+        public IEnumerable<Models.Application> GetAllApplications()
         {
-            List<Application> listApplications = new List<Application>();
+            List<Models.Application> listApplications = new List<Models.Application>();
             string sql = "SELECT * FROM Applications";
             SqlConnection connection = null;
 
@@ -33,7 +42,7 @@ namespace SomiodAPI.Controllers
 
                 while (reader.Read())
                 {
-                    Application application = new Application
+                    Models.Application application = new Models.Application
                     {
                         Id = (int)reader["ID"],
                         NameApp = (string)reader["NameApp"],
@@ -64,7 +73,7 @@ namespace SomiodAPI.Controllers
         {
             string sql = "SELECT * FROM Applications WHERE Id=@id";
             SqlConnection connection = null;
-            Application application = null;
+            Models.Application application = null;
 
             try
             {
@@ -77,7 +86,7 @@ namespace SomiodAPI.Controllers
 
                 if (reader.Read())
                 {
-                    application = new Application
+                    application = new Models.Application
                     {
                         Id = (int)reader["Id"],
                         NameApp = (string)reader["NameApp"],
@@ -110,7 +119,7 @@ namespace SomiodAPI.Controllers
 
         // POST Application
         [Route("api/somiod")]
-        public IHttpActionResult PostApplication([FromBody] Application application)
+        public IHttpActionResult PostApplication([FromBody] Models.Application application)
         {
             string sql = "INSERT INTO Applications VALUES(@nameApp, @creation_dt, @res_type)";
             SqlConnection connection = null;
@@ -150,7 +159,7 @@ namespace SomiodAPI.Controllers
 
         // PUT Application 
         [Route("api/somiod/{id:int}")]
-        public IHttpActionResult PutApplication(int id, [FromBody] Application application)
+        public IHttpActionResult PutApplication(int id, [FromBody] Models.Application application)
         {
             string sql = "UPDATE Applications SET NameApp=@nameApp, Res_type=@res_type WHERE Id=@id";
             SqlConnection connection = null;
@@ -529,6 +538,11 @@ namespace SomiodAPI.Controllers
 
                     if (numRegistos > 0)
                     {
+                        string content = dataSub.Content;
+                        string eventData = "creation";
+                        string endPoint = "127.0.0.1";
+
+                        sendNotification(nameMod, eventData, endPoint, content);
                         return Ok();
                     }
 
@@ -566,9 +580,13 @@ namespace SomiodAPI.Controllers
 
                     if (numRegistos > 0)
                     {
+                        string eventData = dataSub.Event;
+                        string endPoint = dataSub.EndPoint;
+
+                        subChannel(nameMod, eventData, endPoint);
+                        
                         return Ok();
                     }
-
                     return InternalServerError();
                 }
                 catch (Exception)
@@ -654,6 +672,7 @@ namespace SomiodAPI.Controllers
 
             return null;
         }
+
         /*------------------------------------------------ AUXILIARY FUNCTIONS ------------------------------------------------*/
 
         private int GetApplicationId(string name)
@@ -785,6 +804,55 @@ namespace SomiodAPI.Controllers
 
                 return listDataSubs;
             }
+        }
+
+        private void subChannel(string nameMod, string eventData, string endPoint)
+        {
+            string[] topics = { nameMod };
+
+            mqttClient = new MqttClient(IPAddress.Parse(endPoint));
+            mqttClient.Connect(Guid.NewGuid().ToString());
+            
+            if (!mqttClient.IsConnected)
+            {                
+                Console.WriteLine("Error connecting to message broker");
+                return;
+            }
+
+            if (eventData == "creation")
+            {
+                mqttClient.MqttMsgPublishReceived += client_MqttMsgPublishReceivedCreation;
+            }
+            else if (eventData == "deletion")
+            {
+                mqttClient.MqttMsgPublishReceived += client_MqttMsgPublishReceivedDeletion;
+            }
+            
+            mqttClient.Subscribe(topics, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
+        }
+
+        private void client_MqttMsgPublishReceivedCreation(object sender, MqttMsgPublishEventArgs e)
+        {
+            MessageBox.Show(e.Topic + "channel:\n  Data with " + Encoding.UTF8.GetString(e.Message) + " content was related to a creation event");
+        }
+
+        private void client_MqttMsgPublishReceivedDeletion(object sender, MqttMsgPublishEventArgs e)
+        {
+            MessageBox.Show(e.Topic + "channel:\n  Data with " + Encoding.UTF8.GetString(e.Message) + " content was related to a deletion event");
+        }
+
+        private void sendNotification(string nameMod, string eventData, string endPoint, string content)
+        {
+            mqttClient  = new MqttClient(IPAddress.Parse(endPoint));
+            mqttClient.Connect(Guid.NewGuid().ToString());
+
+            if (!mqttClient.IsConnected)
+            {
+                Console.WriteLine("Error connecting to message broker");
+                return;
+            }
+
+            mqttClient.Publish(nameMod, Encoding.UTF8.GetBytes(content));
         }
     }
 }

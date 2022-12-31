@@ -16,5 +16,15 @@ namespace Application_B
         {
             InitializeComponent();
         }
+
+        private void buttonOn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonOff_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
