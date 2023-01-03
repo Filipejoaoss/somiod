@@ -1,24 +1,89 @@
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\Application A.exe.config
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\Application A.exe
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\Application A.pdb
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\obj\Debug\App A.csproj.AssemblyReference.cache
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\obj\Debug\App A.csproj.SuggestedBindingRedirects.cache
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\obj\Debug\Application_A.Form1.resources
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\obj\Debug\Application_A.Properties.Resources.resources
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\obj\Debug\App A.csproj.GenerateResource.cache
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\obj\Debug\App A.csproj.CoreCompileInputs.cache
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\obj\Debug\Application A.exe
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\obj\Debug\Application A.pdb
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\Swashbuckle.Core.dll
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\System.Net.Http.Formatting.dll
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\System.Web.Http.dll
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\System.Net.Http.Formatting.xml
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\System.Web.Http.xml
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\obj\Debug\App A.csproj.CopyComplete
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\System.Net.Http.Extensions.dll
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\System.Net.Http.Primitives.dll
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\System.Net.Http.Extensions.xml
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\bin\Debug\System.Net.Http.Primitives.xml
-C:\Users\Admin\Documents\Universidade\IS\Prática\projeto\somiod\Somiod\Application A\obj\Debug\App A.csproj.App.config
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\Application A.exe.config
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\Application A.exe
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\Application A.pdb
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\Swashbuckle.Core.dll
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\System.Web.Http.dll
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\System.Web.Http.xml
+C:\Users\Admin\Desktop\Somiod_v9\Application A\obj\Debug\App A.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Somiod_v9\Application A\obj\Debug\App A.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Desktop\Somiod_v9\Application A\obj\Debug\Application_A.Form1.resources
+C:\Users\Admin\Desktop\Somiod_v9\Application A\obj\Debug\Application_A.Properties.Resources.resources
+C:\Users\Admin\Desktop\Somiod_v9\Application A\obj\Debug\App A.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Somiod_v9\Application A\obj\Debug\App A.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Somiod_v9\Application A\obj\Debug\App A.csproj.CopyComplete
+C:\Users\Admin\Desktop\Somiod_v9\Application A\obj\Debug\Application A.exe
+C:\Users\Admin\Desktop\Somiod_v9\Application A\obj\Debug\Application A.pdb
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Admin\Desktop\Somiod_v9\Application A\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\Application A.exe.config
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\Application A.exe
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\Application A.pdb
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\Swashbuckle.Core.dll
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\System.Web.Http.dll
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Admin\Desktop\Somiod_v10\Application A\bin\Debug\System.Web.Http.xml
+C:\Users\Admin\Desktop\Somiod_v10\Application A\obj\Debug\App A.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Somiod_v10\Application A\obj\Debug\App A.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Desktop\Somiod_v10\Application A\obj\Debug\Application_A.Form1.resources
+C:\Users\Admin\Desktop\Somiod_v10\Application A\obj\Debug\Application_A.Properties.Resources.resources
+C:\Users\Admin\Desktop\Somiod_v10\Application A\obj\Debug\App A.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Somiod_v10\Application A\obj\Debug\App A.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Somiod_v10\Application A\obj\Debug\App A.csproj.CopyComplete
+C:\Users\Admin\Desktop\Somiod_v10\Application A\obj\Debug\Application A.exe
+C:\Users\Admin\Desktop\Somiod_v10\Application A\obj\Debug\Application A.pdb
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\Application A.exe.config
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\Application A.exe
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\Application A.pdb
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\RestSharp.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\Swashbuckle.Core.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Buffers.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Memory.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Text.Json.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.ValueTuple.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Web.Http.dll
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\RestSharp.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Buffers.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Memory.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Net.Http.Extensions.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Net.Http.Primitives.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Text.Json.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.ValueTuple.xml
+C:\Users\Admin\Desktop\Somiod\Application A\bin\Debug\System.Web.Http.xml
+C:\Users\Admin\Desktop\Somiod\Application A\obj\Debug\App A.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\Somiod\Application A\obj\Debug\App A.csproj.SuggestedBindingRedirects.cache
+C:\Users\Admin\Desktop\Somiod\Application A\obj\Debug\Application_A.Form1.resources
+C:\Users\Admin\Desktop\Somiod\Application A\obj\Debug\Application_A.Properties.Resources.resources
+C:\Users\Admin\Desktop\Somiod\Application A\obj\Debug\App A.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\Somiod\Application A\obj\Debug\App A.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Somiod\Application A\obj\Debug\App A.csproj.CopyComplete
+C:\Users\Admin\Desktop\Somiod\Application A\obj\Debug\Application A.exe
+C:\Users\Admin\Desktop\Somiod\Application A\obj\Debug\Application A.pdb
