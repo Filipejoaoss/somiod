@@ -66,7 +66,7 @@ namespace Application_A
 
             MessageBox.Show("Module created with success!");
 
-            string xmlSub = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n<root>\r\n  <NameSub>sub2</NameSub>\r\n  <Event>creation</Event>\r\n  <EndPoint>127.0.0.1</EndPoint>\r\n  <Res_type>subscription</Res_type>\r\n</root>";
+            string xmlSub = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n<root>\r\n  <NameSub>sub</NameSub>\r\n  <Event>creation</Event>\r\n  <EndPoint>127.0.0.1</EndPoint>\r\n  <Res_type>subscription</Res_type>\r\n</root>";
 
             using (var stream = new MemoryStream())
             using (var writer = new StreamWriter(stream))

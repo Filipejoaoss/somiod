@@ -6,7 +6,6 @@ using System.Web;
 
 namespace SomiodAPI.Models
 {
-    [JsonObject(ItemNullValueHandling = NullValueHandling.Ignore)]
     public class DataSub
     {
         public int Id { get; set; }
